@@ -1,0 +1,4 @@
+Dev B live GitHub acceptance fixture.
+Case 5
+fix(qa): mixed valid and nonexistent FA-173 FA-999999999 [DEVB_E2E_20261124_133503]
+Application source files are unchanged.
