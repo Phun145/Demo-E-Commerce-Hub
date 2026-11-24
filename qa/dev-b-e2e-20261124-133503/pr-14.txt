@@ -1,0 +1,4 @@
+Dev B live GitHub acceptance fixture.
+Case 14
+feat: optional scope FA-173 [DEVB_E2E_20261124_133503]
+Application source files are unchanged.
