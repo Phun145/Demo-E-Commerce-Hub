@@ -1,0 +1,4 @@
+Dev B live GitHub acceptance fixture.
+Case 20
+chore(qa): manual link candidate without task key [DEVB_E2E_20261124_133503]
+Application source files are unchanged.
