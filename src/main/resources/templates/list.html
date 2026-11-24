@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .message-success { color: green; font-weight: bold; }
+        .message-error { color: red; font-weight: bold; }
+        .search-container { margin-bottom: 15px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        dialog { border: 1px solid #ccc; padding: 20px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+<h1>Artifact Management</h1>
+<hr>
+<p th:if="${successMessage != null}" class="message-success" th:text="${successMessage}"></p>
+<p th:if="${errorMessage != null}" class="message-error" th:text="${errorMessage}"></p>
+
+<div class="search-container">
+    <form th:action="@{/}" method="get" style="display: inline-block;">
+        <label for="keyword">Artifact Name: </label>
+        <input type="text" id="keyword" name="keyword" th:value="${keyword}" placeholder="Enter artifact name...">
+        <button type="submit">Search</button>
+    </form>
+    <br>
+    <div style="float: right;">
+        <a th:href="@{/add}">
+            <button type="button">Add New</button>
+        </a>
+    </div>
+</div>
+
+<p th:if="${notFound != null}" class="message-error" th:text="${notFound}"></p>
+
+<table th:if="${artifactList != null and !artifactList.isEmpty()}">
+    <thead>
+    <tr>
+        <th>Code</th>
+        <th>Artifact Name</th>
+        <th>Category</th>
+        <th>Estimated Value ($)</th>
+        <th>Acquisition Date</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="x : ${artifactList}">
+        <td th:text="${x.artifactCode}"></td>
+        <td th:text="${x.artifactName}"></td>
+        <td th:text="${x.category.categoryName}"></td>
+        <td th:text="${x.estimatedValue}"></td>
+        <td th:text="${x.acquisitionDate != null ? #temporals.format(x.acquisitionDate, 'dd/MM/yyyy') : ''}"></td>
+        <td th:text="${x.statusDes}"></td>
+        <td>
+            <a th:href="@{/view/{id}(id=${x.id})}">View</a> |
+            <a href="javascript:void(0)"
+               th:onclick="|document.getElementById('delete-dialog-${x.id}').showModal()|">
+                Delete
+            </a>
+            <dialog th:id="|delete-dialog-${x.id}|">
+                <h3>Confirmation</h3>
+                <p th:text="|Are you sure you want to delete &quot;${x.artifactName}&quot;?|"></p>
+                <form th:action="@{/delete/{id}(id=${x.id})}" method="post" style="display: inline;">
+                    <button type="submit">Yes</button>
+                    <button type="button" th:onclick="|document.getElementById('delete-dialog-${x.id}').close()|">
+                        No
+                    </button>
+                </form>
+            </dialog>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
