@@ -1,0 +1,4 @@
+Dev B live GitHub acceptance fixture.
+Case 8
+refactor(qa): shared modules FA-173 FA-174 [DEVB_E2E_20261124_133503]
+Application source files are unchanged.
