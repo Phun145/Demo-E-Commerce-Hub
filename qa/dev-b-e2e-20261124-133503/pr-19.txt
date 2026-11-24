@@ -1,0 +1,4 @@
+Dev B live GitHub acceptance fixture.
+Case 19
+feat(qa): shared aliases FA-173 TASK-204 FA-174 TASK-205 [DEVB_E2E_20261124_133503]
+Application source files are unchanged.
