@@ -1,0 +1,4 @@
+Dev B live GitHub acceptance fixture.
+Case 11
+feat(qa): foreign root FA-78 [DEVB_E2E_20261124_133503]
+Application source files are unchanged.
