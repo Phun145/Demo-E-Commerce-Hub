@@ -1,0 +1,4 @@
+Dev B live GitHub acceptance fixture.
+Case 7
+chore(qa): duplicate aliases FA-173 TASK-204 [DEVB_E2E_20261124_133503]
+Application source files are unchanged.
