@@ -1,0 +1,6 @@
+Dev B live GitHub acceptance fixture.
+Case 17
+docs(qa): multiline references FA-173
+
+Additional task FA-174. [DEVB_E2E_20261124_133503]
+Application source files are unchanged.
